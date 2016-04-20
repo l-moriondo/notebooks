@@ -45,6 +45,9 @@ http://stackoverflow.com/a/19296349
 >    A default value of the consumer implementation, if none of the above is given. It may be infinite, or it may be a limited period.
 
 
+### Refreshing policies
+http://blog.cloud-elements.com/oauth-2-0-access-refresh-token-guide
+
 ### Experience with refresh tokens
 https://www.box.com/blog/oauth2-update-longer-lived-refresh-tokens/
 
