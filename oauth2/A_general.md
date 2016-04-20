@@ -5,10 +5,10 @@ Specs: https://tools.ietf.org/html/rfc6749
 ### Basics
 
 - Steps involved in authorizing a Web app:
-1. get AUTH code
-2. exchange AUTH for ACCESS (use client secret, ask for consent)
-3. receive REFRESH and ACCESS
-Example: app keeps using access until expiration, then refresh (just redirect to oauth, no consent needed)
+    1. get AUTH code
+    2. exchange AUTH for ACCESS (use client secret, ask for consent)
+    3. receive REFRESH and ACCESS
+    Example: app keeps using access until expiration, then refresh (just redirect to oauth, no consent needed)
 
 - Very interesting post about implementation
 http://stackoverflow.com/q/11357176
