@@ -8,11 +8,18 @@ Specs: https://tools.ietf.org/html/rfc6749
     1. get AUTH code
     2. exchange AUTH for ACCESS (use client secret, ask for consent)
     3. receive REFRESH and ACCESS
-    Example: app keeps using access until expiration, then refresh (just redirect to oauth, no consent needed)
+    4. when ACCESS expires use REFRESH for a new one
+
+Example: app keeps using access until expiration, then refresh (just redirect to oauth, no consent needed)
 
 - Very interesting post about implementation
 http://stackoverflow.com/q/11357176
 
+
+### Mobile
+
+- Guide to Mobile API Security  https://stormpath.com/blog/the-ultimate-guide-to-mobile-api-security/
+- How to Manage API Authentication Lifecycle https://stormpath.com/blog/manage-authentication-lifecycle-mobile/
 
 ### Best practices
 
