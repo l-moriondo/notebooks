@@ -1,15 +1,23 @@
 # OAuth2 Basics
+Specs: https://tools.ietf.org/html/rfc6749
+
 
 ### Basics
 
 - Steps involved in authorizing a Web app:
-1. get auth code
-2. exchange auth for refresh (use client secret, ask for consent)
-3. exchange refresh for access
+1. get AUTH code
+2. exchange AUTH for ACCESS (use client secret, ask for consent)
+3. receive REFRESH and ACCESS
 Example: app keeps using access until expiration, then refresh (just redirect to oauth, no consent needed)
 
 - Very interesting post about implementation
 http://stackoverflow.com/q/11357176
+
+
+### Best practices
+
+https://rnd.feide.no/2012/04/19/best-practice-for-dealing-with-oauth-2-0-token-expiration-at-the-consumer/
+
 
 
 ### Use cases:
@@ -19,13 +27,22 @@ http://stackoverflow.com/a/19296349
 >
 > On the mobile, there are a couple of scenarios that I know of:
 
->     Store clientid/secret on the device and have the device orchestrate obtaining access to the user's resources.
+>     1. Store clientid/secret on the device and have the device orchestrate obtaining access to the user's resources.
 
->     Use a backend app server to hold the clientid/secret and have it do the orchestration. Use the access_token as a kind of session key and pass it between the client and the app server.
+>     2. Use a backend app server to hold the clientid/secret and have it do the orchestration. Use the access_token as a kind of session key and pass it between the client and the app server.
 
 > Comparing 1 and 2
 
 > In 1) Once you have clientid/secret on the device they aren't secret any more. Anyone can decompile and then start acting as though they are you, with the permission of the user of course. The access_token and refresh_token are also in memory and could be accessed on a compromised device which means someone could act as your app without the user giving their credentials. In this scenario the length of the access_token makes no difference to the hackability since refresh_token is in the same place as access_token. In 2) the clientid/secret nor the refresh token are compromised. Here the length of the access_token expiry determines how long a hacker could access the users resources, should they get hold of it.
+
+### Expiration settings
+
+> At the time the consumer receives an access token response, the validity period of the token can be decided using any of these indicators, in the given order:
+
+>    The expires_in property in the access token response. This value is reccomended to be included by the provider.
+>    A special scope indicating validity period of the token. In example a scope offline may be defined to mean infinite validity.
+>    A default value of validity period, typically per provider.
+>    A default value of the consumer implementation, if none of the above is given. It may be infinite, or it may be a limited period.
 
 
 ### Experience with refresh tokens
